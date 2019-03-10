@@ -1,6 +1,6 @@
 ---
 layout: distill
-title: Lecture 14: Markov Chain Monte Carlo 
+title: Lecture 14 Markov Chain Monte Carlo 
 description: An example of a distill-style lecture notes that showcases the main elements.
 date: 2019-01-09
 
