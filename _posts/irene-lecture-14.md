@@ -9,12 +9,13 @@ lecturers:
     url: "https://www.cs.cmu.edu/~epxing/"
 
 authors:
-  - name: Author 1  # author's full name
+  - name: Irene Li
     url: "#"  # optional URL to the author's homepage
-  - name: Author 2
+  - name: George Cai
     url: "#"
-  - name: Author 3
+  - name: Zhuoran Zhang
     url: "#"
+  - name: Jiacheng Zhu
 
 editors:
   - name: Editor 1  # editor's full name
