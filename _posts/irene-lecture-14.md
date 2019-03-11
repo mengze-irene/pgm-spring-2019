@@ -31,7 +31,8 @@ abstract: >
 * Estimate expectations of functions $E[f(x)]$ under a distribution $p(x)$.
 
 ### Why is Monte Carlo useful?
-* Can use samples of $p(x)$ to approximate p(x) itself (Allow us to do graphical model inference when we can't compute $p(x)$).
+* Can use samples of $p(x)$ to approximate p(x) itself 
+  * Allow us to do graphical model inference when we can't compute $p(x)$.
 * Expectations $E[f(x)]$ reveal interesting properties about $p(x)$, e.g., means and variances of $p(x)$.
 
 ### Limitations of Monte Carlo
@@ -42,6 +43,9 @@ abstract: >
   * Do not work well if the proposal $Q(x)$ is very different from $P(x)$.
   * Yet constructing a $Q(x)$ similar to $P(x)$ can be difficult.
     * Requires knowledge of the analytical form of $P(x)$ - but if we had that, we wouldn't even need to sample!
+* Intuition: Instead of a fixed proposal $Q(x)$, use an adaptive proposal.
+
+## Markov Chain Monte Carlo (MCMC)
 
 ## Equations
 
