@@ -45,8 +45,27 @@ abstract: >
     * Requires knowledge of the analytical form of $P(x)$ - but if we had that, we wouldn't even need to sample!
 * Intuition: Instead of a fixed proposal $Q(x)$, use an adaptive proposal.
 
-# Markov Chain Monte Carlo (MCMC)
+## Markov Chain Monte Carlo (MCMC)
+MCMC algorithms feature adaptive proposals.
+* Instead of $Q(x')$, use $Q(x'|x)$ where x' is the new state being sampled, and x is the previous sample.
+* As x changes, $Q(x'|x)$ can also change (as a function of $x'$).
 
+Figure here from slide 4
+
+### Markove Chains
+* A Markov Chain is a sequence of random variables $x^{(1)}$, $x^{(2)}$, ..., $x^{(n)}$ with the Markov Property
+$$
+P(x^{(n)}=x|x^{(1)}, ..., x^{(n-1)})=P(x^{(n)}=x|x^{(n-1)})
+$$
+  * $P(x^{(n)}=x|x^{(n-1)})$ is known as the transition kernel **transition kernel**.
+  * The next state depends only on the preceding states.
+  * Random variables $x^{(i)}$ can be **vectors**.
+    * WWe define $x^{(i)}$ to be the t-th sample of **all** variables in a graphical model
+    * $x^{(i)}$ represents the entire state of the graphical model at time $t$.
+
+* We study homogeneous Markov Chains, in which the transition kernel $P(x^{(n)}=x|x^{(n-1)})$ is fixed with time.
+  * To emphasize this, we will call the kernel $T(x'|x)$, where $x$ is the previous state and $x'$ is the next state.
+   
 
 ## Equations
 
