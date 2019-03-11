@@ -25,6 +25,12 @@ abstract: >
   An example abstract block.
 ---
 
+## Recap of Monte Carlo
+### Monte Carlo methods are algorithms that:
+* Generate samples from a given probability distribution $p(x)$.
+* Estimate expectations of functions $E[f(x)]$ under a distribution $p(x)$.
+
+
 ## Equations
 
 This theme supports rendering beautiful math in inline and display modes using [KaTeX](https://khan.github.io/KaTeX/) engine.
