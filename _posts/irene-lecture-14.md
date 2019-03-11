@@ -56,6 +56,7 @@ To understand how MCMC works, we need to look at Markov Chains first.
 
 ### Markov Chains
 * A Markov Chain is a sequence of random variables $x^{(1)}$, $x^{(2)}$, ..., $x^{(n)}$ with the Markov Property
+
 $$
 P(x^{(n)}=x|x^{(1)}, ..., x^{(n-1)})=P(x^{(n)}=x|x^{(n-1)})
 $$
@@ -70,13 +71,14 @@ $$
    
 ### Markov Chains Concepts
 Define a few important concepts of Markov Chains(MC)
-* Probability distribution over states: $\pi^{(t)}(x)$ is a distribution over the state of the system $x$, at time $t$.
+* **Probability distribution over states**: $\pi^{(t)}(x)$ is a distribution over the state of the system $x$, at time $t$.
   * When dealing with MCs, we don't think of the system as being in one state, but as having a distribution over states.
   * For graphical models, remember that $x$ represents **all** variables.
-* Transitions: recall that states transition from $x^{(t)}$ to $x^{(t+1)}$ according to the transition kernel $T(x'|x)$. We can also transition entire distributions:
-$$
-\pi^{(t+1)}(x')=\sum_{x} \pi^{(t)}(x)T(x'|x)
-$$
+* **Transitions**: recall that states transition from $x^{(t)}$ to $x^{(t+1)}$ according to the transition kernel $T(x'|x)$.      * We can also transition entire distributions: $\pi^{(t+1)}(x')=\sum_{x} \pi^{(t)}(x)T(x'|x)$
+  * At time t, state x has probability mass $\pi^{(t)}(x)$. The transition probability redistributes this mass to other states $x’$.
+* **Stationary distributions**: $\pi^{(t)}(x)$ is stationary if it does not change under the transition kernel:
+$\pi(x')=\sum_{x} \pi(x)T(x'|x)$, for all $x'$.
+
  
 ## Equations
 
