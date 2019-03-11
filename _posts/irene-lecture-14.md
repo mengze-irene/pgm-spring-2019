@@ -50,7 +50,12 @@ MCMC algorithms feature adaptive proposals.
 * Instead of $Q(x')$, use $Q(x'|x)$ where x' is the new state being sampled, and x is the previous sample.
 * As x changes, $Q(x'|x)$ can also change (as a function of $x'$).
 
-Figure here from slide 4
+<figure>
+<img src="{{ '/assets/img/notes/lecture-14/MCMC.png' | relative_url }}" />
+<figcaption>
+Comparison between using a fixed (bad) proposal and an adaptive proposal.
+</figcaption>
+</figure>
 
 To understand how MCMC works, we need to look at Markov Chains first.
 
@@ -109,7 +114,13 @@ $\pi(x')=\sum_{x} \pi(x)T(x'|x)$, for all $x'$. To understand stationary distrib
     * Notice that we only need to compute $P(x')/P(x)$ rather than $P(x')$ or $P(x)$ separately, so we don't need to know the normalizer.
   * $A(x'\ | x)$ ensures that, after sufficiently many draws, our samples will come from the true distribution $P(x)$.
  
- <img src="{{ '/assets/img/notes/lecture-14/MH_algo.png' | relative_url }}" style="width: 70%; height: auto;display: block;margin-left: auto;margin-right: auto;"/>
+<figure>
+<img src="{{ '/assets/img/notes/lecture-14/MH_algo.png' | relative_url }}" />
+<figcaption>
+The Metropolis-Hastings Algorithm
+</figcaption>
+</figure>
+ 
 
 ### Why does Metropolis-Hastings work?
 Since we draw a sample x' according to $Q(x'\ |x)$, and then accept/reject according to $A(x'\ |x)$, the transition kernel is:
