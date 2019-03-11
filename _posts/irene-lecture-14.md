@@ -71,24 +71,32 @@ $$
    
 ### Markov Chains Concepts
 Define a few important concepts of Markov Chains(MC)
-#### Probability distribution over states**: $\pi^{(t)}(x)$ is a distribution over the state of the system $x$, at time $t$.
-* When dealing with MCs, we don't think of the system as being in one state, but as having a distribution over states.
-* For graphical models, remember that $x$ represents **all** variables.
+* **Probability distribution over states**: $\pi^{(t)}(x)$ is a distribution over the state of the system $x$, at time $t$.
+  * When dealing with MCs, we don't think of the system as being in one state, but as having a distribution over states.
+  * For graphical models, remember that $x$ represents **all** variables.
 * **Transitions**: recall that states transition from $x^{(t)}$ to $x^{(t+1)}$ according to the transition kernel $T(x'|x)$.      * We can also transition entire distributions: $\pi^{(t+1)}(x')=\sum_{x} \pi^{(t)}(x)T(x'|x)$
   * At time t, state x has probability mass $\pi^{(t)}(x)$. The transition probability redistributes this mass to other states $x’$.
 * **Stationary distributions**: $\pi^{(t)}(x)$ is stationary if it does not change under the transition kernel:
 $\pi(x')=\sum_{x} \pi(x)T(x'|x)$, for all $x'$. To understand stationary distributions, we need to define some notions:
-  * *Irreducible*: an MC is irreducible if you can get from any state x to any other state x’ with probability > 0 in a finite number of steps, i.e., there are no unreachabble parts of the state space.
-  * *Aperiodic*: an MC is aperiodic if you can return to any state x at any time.
+  * **Irreducible**: an MC is irreducible if you can get from any state x to any other state x’ with probability > 0 in a finite number of steps, i.e., there are no unreachabble parts of the state space.
+  * **Aperiodic**: an MC is aperiodic if you can return to any state x at any time.
     * Periodic MCs have states that need ≥2 time steps to return to (cycles).
-  * *Ergodic (or regular)*: an MC is ergodic if it is irreducible and aperiodic
+  * **Ergodic (or regular)**: an MC is ergodic if it is irreducible and aperiodic
     * Ergodicity is important: it implies you can reach the stationary distribution $\pi_{st}(x)$, no matter the initial distribution $\pi^{(0)}(x)$.
     * All good MCMC algorithms must satisfy ergodicity, so that you can’t initialize in a way that will never converge.
-  * *Reversible (detailed balance)*: an MC is reversible if there exists a distribution $\pi(x)$ such that the detailed balance condition is satisfied:
+  * **Reversible (detailed balance)**: an MC is reversible if there exists a distribution $\pi(x)$ such that the detailed balance condition is satisfied:
   $$\pi(x')T(x|x')=\pi(x)T(x'|x)$$
     Probability of $x'->x$ is the same as $x->x'$.
       * Reversible MCs **always** have a stationary distribution! Proof:
-      
+      <d-math block>
+      \begin{aligned}
+      \pi(x')T(x\ |x') & = \pi(x)T(x'\ | x) \\
+      \sum_{x}\pi(x')T(x\ |x') & = \sum_{x}\pi(x)T(x'\ | x) \\
+      \pi(x')\sum_{x}T(x\ |x') & = \sum_{x}\pi(x)T(x'\ | x) \\
+      \pi(x') & = \sum_{x}\pi(x)T(x'\ | x) 
+      \end{aligned}
+      </d-math>
+      Note that the last line is the definition of a stationary distribution!
  
 ## Equations
 
