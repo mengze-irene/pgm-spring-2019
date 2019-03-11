@@ -97,6 +97,19 @@ $\pi(x')=\sum_{x} \pi(x)T(x'|x)$, for all $x'$. To understand stationary distrib
       \end{aligned}
       </d-math>
       Note that the last line is the definition of a stationary distribution!
+
+## Metropolis-Hastings (MH) -- An MCMC method
+The MH algorithm:
+1. Draws a sample x' from $Q(x'\ |x)$, where x is the previous sample.
+2. The new sample x’ is accepted or rejected with some probability $A(x'\ | x)$
+  * This acceptance probability is $A(x'\ | x)=min(1, \frac{P(x')Q(x\ |x')}{P(x)Q(x'\ |x)})$
+  * $A(x'\ | x)$ is like a ratio of importance sampling weights
+    * $P(x')/Q(x'\ |x)$ is the importance weight for x', $P(x)/Q(x\ |x')$ is the mportance weight for x.
+    * We devide the importance wieght for x' by that of x
+    * Notice that we only need to compute $P(x')/P(x)$ rather than $P(x')$ or $P(x)$ separately, so we don't need to know the normalizer.
+  * $A(x'\ | x)$ ensures that, after sufficiently many draws, our samples will come from the true distribution $P(x)$.
+ 
+ <img src="{{ '/assets/img/notes/lecture-14/MH_algo.png' | relative_url }}" style="width: 70%; height: auto;display: block;margin-left: auto;margin-right: auto;"/>
  
 ## Equations
 
