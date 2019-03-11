@@ -99,7 +99,7 @@ $\pi(x')=\sum_{x} \pi(x)T(x'|x)$, for all $x'$. To understand stationary distrib
       Note that the last line is the definition of a stationary distribution!
 
 ## Metropolis-Hastings (MH) -- An MCMC method
-The MH algorithm:
+### How the MH algorithm works in practice
 1. Draws a sample x' from $Q(x'\ |x)$, where x is the previous sample.
 2. The new sample x’ is accepted or rejected with some probability $A(x'\ | x)$
   * This acceptance probability is $A(x'\ | x)=min(1, \frac{P(x')Q(x\ |x')}{P(x)Q(x'\ |x)})$
@@ -110,6 +110,34 @@ The MH algorithm:
   * $A(x'\ | x)$ ensures that, after sufficiently many draws, our samples will come from the true distribution $P(x)$.
  
  <img src="{{ '/assets/img/notes/lecture-14/MH_algo.png' | relative_url }}" style="width: 70%; height: auto;display: block;margin-left: auto;margin-right: auto;"/>
+
+### Why does Metropolis-Hastings work?
+Since we draw a sample x' according to $Q(x'\ |x)$, and then accept/reject according to $A(x'\ |x)$, the transition kernel is:
+$$T(x'\ |x)=Q(x'\ | x)A(x'\ |x)$$
+We can prove that MH satisfies detailed balance/reversibility:
+Recall that 
+$$A(x'\ | x)=min(1, \frac{P(x')Q(x\ |x')}{P(x)Q(x'\ |x)})$$.
+
+This implies the following:
+$$\text{if} A(x'\ |x)<1 \text{then| \frac{P(x')Q(x\ |x')}{P(x)Q(x'\ |x)}>1 \text{and thus} A(x\ |x')=1$$
+
+Now suppose $A(x'\ |x)<1$ and $A(x \ | x')=1$. We have:
+<d-math block>
+\begin{aligned}
+A(x'\ |x) & = \frac{P(x')Q(x\ |x')}{P(x)Q(x'\ |x)} \\
+P(x)Q(x'\ |x)A(x'\ |x) & = P(x')Q(x\ |x') \\
+P(x)Q(x'\ |x)A(x'\ |x) & =P(x')Q(x\ |x')A(x\ |x') \\
+\pi(x')T(x\ |x')& =\pi(x)T(x'\ |x)
+\end{aligned}
+</d-math>
+The last line is exactly the detailed balance condition. 
+In other words, the MH algorithm leads to a stationary distribution $P(x)$. Recall we defined $P(x)$ to be the true distribution of x. Thus, the MH algorithm eventually converges to the true distribution!
+
+### Caveats
+Although MH eventually converges to the true distribution $P(x)$, we have no guarantees as to when this will occur.
+* The burn-in period represents the un-converged part of the Markov Chain - that’s why we throw those samples away!
+* Knowing when to halt burn-in is an art. We will look at some techniques later in this lecture.
+
  
 ## Equations
 
