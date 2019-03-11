@@ -30,6 +30,11 @@ abstract: >
 * Generate samples from a given probability distribution $p(x)$.
 * Estimate expectations of functions $E[f(x)]$ under a distribution $p(x)$.
 
+### Why is Monte Carlo useful?
+* Can use samples of $p(x)$ to approximate p(x) itself.
+  Allow us to do graphical model inference when we can't compute $p(x)$.
+* Expectations $E[f(x)]$ reveal interesting properties about $p(x)$, e.g., means and variances of $p(x)$.
+
 
 ## Equations
 
