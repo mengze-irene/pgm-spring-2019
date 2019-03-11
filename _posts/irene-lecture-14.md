@@ -71,7 +71,7 @@ $$
    
 ### Markov Chains Concepts
 Define a few important concepts of Markov Chains(MC)
-####Probability distribution over states**: $\pi^{(t)}(x)$ is a distribution over the state of the system $x$, at time $t$.
+#### Probability distribution over states**: $\pi^{(t)}(x)$ is a distribution over the state of the system $x$, at time $t$.
 * When dealing with MCs, we don't think of the system as being in one state, but as having a distribution over states.
 * For graphical models, remember that $x$ represents **all** variables.
 * **Transitions**: recall that states transition from $x^{(t)}$ to $x^{(t+1)}$ according to the transition kernel $T(x'|x)$.      * We can also transition entire distributions: $\pi^{(t+1)}(x')=\sum_{x} \pi^{(t)}(x)T(x'|x)$
