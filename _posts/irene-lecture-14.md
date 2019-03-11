@@ -45,7 +45,8 @@ abstract: >
     * Requires knowledge of the analytical form of $P(x)$ - but if we had that, we wouldn't even need to sample!
 * Intuition: Instead of a fixed proposal $Q(x)$, use an adaptive proposal.
 
-## Markov Chain Monte Carlo (MCMC)
+# Markov Chain Monte Carlo (MCMC)
+
 
 ## Equations
 
