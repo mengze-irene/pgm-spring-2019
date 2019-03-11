@@ -52,7 +52,9 @@ MCMC algorithms feature adaptive proposals.
 
 Figure here from slide 4
 
-### Markove Chains
+To understand how MCMC works, we need to look at Markov Chains first.
+
+### Markov Chains
 * A Markov Chain is a sequence of random variables $x^{(1)}$, $x^{(2)}$, ..., $x^{(n)}$ with the Markov Property
 $$
 P(x^{(n)}=x|x^{(1)}, ..., x^{(n-1)})=P(x^{(n)}=x|x^{(n-1)})
@@ -60,13 +62,22 @@ $$
   * $P(x^{(n)}=x|x^{(n-1)})$ is known as the transition kernel **transition kernel**.
   * The next state depends only on the preceding states.
   * Random variables $x^{(i)}$ can be **vectors**.
-    * WWe define $x^{(i)}$ to be the t-th sample of **all** variables in a graphical model
+    * We define $x^{(i)}$ to be the t-th sample of **all** variables in a graphical model
     * $x^{(i)}$ represents the entire state of the graphical model at time $t$.
 
 * We study homogeneous Markov Chains, in which the transition kernel $P(x^{(n)}=x|x^{(n-1)})$ is fixed with time.
   * To emphasize this, we will call the kernel $T(x'|x)$, where $x$ is the previous state and $x'$ is the next state.
    
-
+### Markov Chains Concepts
+Define a few important concepts of Markov Chains(MC)
+* Probability distribution over states: $\pi^{(t)}(x)$ is a distribution over the state of the system $x$, at time $t$.
+  * When dealing with MCs, we don't think of the system as being in one state, but as having a distribution over states.
+  * For graphical models, remember that $x$ represents **all** variables.
+* Transitions: recall that states transition from $x^{(t)}$ to $x^{(t+1)}$ according to the transition kernel $T(x'|x)$. We can also transition entire distributions:
+$$
+\pi^{(t+1)}(x')=\sum_{x} \pi^{(t)}(x)T(x'|x)
+$$
+ 
 ## Equations
 
 This theme supports rendering beautiful math in inline and display modes using [KaTeX](https://khan.github.io/KaTeX/) engine.
