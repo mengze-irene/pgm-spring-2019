@@ -146,8 +146,9 @@ In other words, the MH algorithm leads to a stationary distribution $P(x)$. Reca
 
 ### Caveats
 Although MH eventually converges to the true distribution $P(x)$, we have no guarantees as to when this will occur.
-* The burn-in period represents the un-converged part of the Markov Chain - that’s why we throw those samples away!
-* Knowing when to halt burn-in is an art. We will look at some techniques later in this lecture.
+* MH has a "burn-in" period: an initial number of samples are thrown away because they are not from the true distribution.   
+  * The burn-in period represents the un-converged part of the Markov Chain.
+  * Knowing when to halt burn-in is an art. We will look at some techniques later in this lecture.
 
  
 ## Equations
